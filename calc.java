@@ -1,34 +1,21 @@
-import java.io.IOException;
 import java.util.Scanner;
 
 public class calc {
     public static void main(String[] args) {
-
-System.out.println("Введите выражение");
+        System.out.println("Введите выражение:");
         Scanner scan = new Scanner(System.in);
 
         while (true) {
             String text = scan.nextLine();
-
-            try {
-                if (text.length()<3 | text.length()>4) {
-                    throw new Exception();
-                }
-            } catch (Exception ex) {
-                System.out.println("Не является мат выражением");
-                System.out.println("Завершение программы");
-                System.exit(0);
-            }
-
             String[] figures = text.split("[-+*/]");
-            String[] mathsimbol = text.split("");
-            int lengthtext = text.length();
+            String[] math = text.split("");
+            int size = text.length();
 
             int num1 = Integer.parseInt(figures[0]);
             int num2 = Integer.parseInt(figures[1]);
 
            try {
-                if ((num1 < 1 || num1 > 10) && (num2 < 1 || num2 > 10)) {
+                if ((num1 < 1 || num1 > 10) || (num2 < 1 || num2 > 10)) {
                     throw new Exception();
                 }
             } catch (Exception ex) {
@@ -37,22 +24,18 @@ System.out.println("Введите выражение");
                 System.exit(0);
             }
 
-            String c = lengthtext >= 4 ? mathsimbol[2] : mathsimbol[1];
+            String c = size >= 4 ? math[2] : math[1];
 
-            //System.out.println(num1 + " " + num2 + " " + c );
+           boolean math1 = c.equals("+"), math2 = c.equals("-"), math3 = c.equals("*"), math4 = c.equals("/");
 
-            boolean mathsimbol1 = (c.equals("+")), mathsimbol2 = (c.equals("-"));
-            boolean mathsimbol3 = (c.equals("*")), mathsimbol4 = (c.equals("/"));
-
-            int result;
-            if (mathsimbol1)
-                System.out.println("=" + (result = num1 + num2));
-            else if (mathsimbol2)
-                System.out.println("=" + (result = num1 - num2));
-            else if (mathsimbol3)
-                System.out.println("=" + (result = num1 * num2));
-            else if (mathsimbol4)
-                System.out.println(result = num1 / num2);
+            if (math1)
+                System.out.println(num1 + num2);
+            else if (math2)
+                System.out.println(num1 - num2);
+            else if (math3)
+                System.out.println(num1 * num2);
+            else if (math4)
+                System.out.println(num1 / num2);
         }
     }
 }
