@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class calc {
     public static void main(String[] args) {
 
+System.out.println("Введите выражение");
         Scanner scan = new Scanner(System.in);
 
         while (true) {
@@ -45,11 +46,11 @@ public class calc {
 
             int result;
             if (mathsimbol1)
-                System.out.println(result = num1 + num2);
+                System.out.println("=" + (result = num1 + num2));
             else if (mathsimbol2)
-                System.out.println(result = num1 - num2);
+                System.out.println("=" + (result = num1 - num2));
             else if (mathsimbol3)
-                System.out.println(result = num1 * num2);
+                System.out.println("=" + (result = num1 * num2));
             else if (mathsimbol4)
                 System.out.println(result = num1 / num2);
         }
